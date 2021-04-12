@@ -11,11 +11,11 @@ the package contains only one function named "generateFromSql" with 8 arguments 
 * totalText (default = "Total") : title of footer row that will be the put below the first column.
 * rowIndex (default = False) : indicates whether the table should have index column or not.
 
-<b>
+**
 usage :
-</b>
+**
 
-<code style='font-family:tahoma;font-size:12px;color:blue'>
+```python
   
 from flask_sqlalchemy_report import Reporter 
 
@@ -26,3 +26,5 @@ def listOfPersons():
   return Reporter.sqlPrinter(db.session, "Employee List","SELECT FirstName as 'First Name', LastName as 'Last Name', phone as 'Phone Number', salary as 'Salary' FROM persons", ['Salary'], "rtl", "Arial", "Total Salary", True)
   
  </code>
+ 
+ ```
