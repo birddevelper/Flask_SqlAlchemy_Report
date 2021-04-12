@@ -1,0 +1,9 @@
+README.md
+setup.py
+flask_sqlalchemy_report/Reporter.py
+flask_sqlalchemy_report/__init__.py
+flask_sqlalchemy_report.egg-info/PKG-INFO
+flask_sqlalchemy_report.egg-info/SOURCES.txt
+flask_sqlalchemy_report.egg-info/dependency_links.txt
+flask_sqlalchemy_report.egg-info/requires.txt
+flask_sqlalchemy_report.egg-info/top_level.txt
