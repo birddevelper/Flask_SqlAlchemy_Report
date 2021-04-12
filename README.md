@@ -13,6 +13,12 @@ the package contains only one function named "generateFromSql" with 8 arguments 
 
 **usage :**
 
+
+```bash
+pip install flask-sqlalchemy-report
+```
+
+
 ```python
 from flask_sqlalchemy_report import Reporter 
 
