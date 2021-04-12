@@ -15,7 +15,7 @@ the package contains only one function named "generateFromSql" with 8 arguments 
 usage :
 </b>
 
-<code style='font-tahoma;font-size:12px;color:blue'>
+<code style='font-family:tahoma;font-size:12px;color:blue'>
   
 from flask_sqlalchemy_report import Reporter 
 
