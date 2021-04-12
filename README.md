@@ -25,6 +25,6 @@ from flask_sqlalchemy_report import Reporter
 @app.route('/listOfPersons', methods=['GET'])
 def listOfPersons():
   
-  return Reporter.sqlPrinter(db.session, "Employee List","SELECT FirstName as 'First Name', LastName as 'Last Name', phone as 'Phone Number', salary as 'Salary' FROM persons", ['Salary'], "rtl", "Arial", "Total Salary", True)
+  return Reporter.generateFromSql(db.session, "Employee List","SELECT FirstName as 'First Name', LastName as 'Last Name', phone as 'Phone Number', salary as 'Salary' FROM persons", ['Salary'], "rtl", "Arial", "Total Salary", True)
    
  ```
