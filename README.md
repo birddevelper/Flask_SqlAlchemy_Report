@@ -15,7 +15,8 @@ the package contains only one function named "generateFromSql" with 8 arguments 
 usage :
 </b>
 
-<code>
+<code style='font-tahoma;font-size:12px;color:blue'>
+  
 from flask_sqlalchemy_report import Reporter 
 
 @app.route('/listOfPersons', methods=['GET'])
@@ -24,4 +25,4 @@ def listOfPersons():
   
   return Reporter.sqlPrinter(db.session, "Employee List","SELECT FirstName as 'First Name', LastName as 'Last Name', phone as 'Phone Number', salary as 'Salary' FROM persons", ['Salary'], "rtl", "Arial", "Total Salary", True)
   
-  </code>
+ </code>
