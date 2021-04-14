@@ -1,4 +1,4 @@
-This is easy to use tool for generating html table from sql query.
+### This is easy to use tool for generating html table from sql query.
 
 the package contains only one function named "generateFromSql" with 8 arguments :
 
@@ -25,7 +25,7 @@ pip install flask-sqlalchemy-report
 ```
 
 ## Usage :
-=======
+
 ```bash
 pip install flask-sqlalchemy-report
 ```
