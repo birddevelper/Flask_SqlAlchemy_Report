@@ -26,10 +26,6 @@ pip install flask-sqlalchemy-report
 
 ## Usage :
 
-```bash
-pip install flask-sqlalchemy-report
-```
-
 
 ```python
 from flask_sqlalchemy_report import Reporter 
