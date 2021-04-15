@@ -36,3 +36,6 @@ def listOfPersons():
   return Reporter.generateFromSql(db.session, "Employee List","SELECT FirstName as 'First Name', LastName as 'Last Name', phone as 'Phone Number', salary as 'Salary' FROM persons", ['Salary'], "rtl", "Arial", "Total Salary", True,'#ffeeee','#ffeeff','#ffffff')
    
  ```
+
+## See More 
+[Read More ](https://m-shaeri.ir/blog/generate-html-table-from-sql-query-in-flask/)
