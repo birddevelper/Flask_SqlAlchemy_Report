@@ -2,7 +2,7 @@
 
 ### This is easy to use tool for generating html table from sql query.
 
-The package contains only one function named "generateFromSql" with 8 arguments :
+The package contains only one function named "generateFromSql" with 11 arguments :
 
 * session : SQLAlchemy session
 * title : the title of the report that will be shown on top of table
