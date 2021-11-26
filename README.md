@@ -41,7 +41,7 @@ def listOfPersons():
   headerRowBackgroundColor = '#ffeeee'
   evenRowsBackgroundColor = '#ffeeff'
   oddRowsBackgroundColor = '#ffffff'
-  return Reporter.generateFromSql(db.session, reportTitle,sqlQuery, columnsToBeSummarized , 
+  return Reporter.generateFromSql(db.session, reportTitle, sqlQuery, columnsToBeSummarized, 
                                   "ltr", fontName, "Total Salary", True,
                                   headerRowBackgroundColor, evenRowsBackgroundColor, oddRowsBackgroundColor
                                   )
