@@ -34,13 +34,14 @@ from flask_sqlalchemy_report import Reporter
 
 @app.route('/listOfPersons', methods=['GET'])
 def listOfPersons():
+  ReportTitle = "Employee List"
   sqlQuery = "SELECT FirstName as 'First Name', LastName as 'Last Name', phone as 'Phone Number', salary as 'Salary' FROM persons"
   columnsToBeSummarized = ['Salary']
   fontName = "Arial"
   headerRowBackgroundColor = '#ffeeee'
   evenRowsBackgroundColor = '#ffeeff'
   oddRowsBackgroundColor = '#ffffff'
-  return Reporter.generateFromSql(db.session, "Employee List",sqlQuery, columnsToBeSummarized , 
+  return Reporter.generateFromSql(db.session, ReportTitle,sqlQuery, columnsToBeSummarized , 
                                   "ltr", fontName, "Total Salary", True,
                                   headerRowBackgroundColor, evenRowsBackgroundColor, oddRowsBackgroundColor
                                   )
