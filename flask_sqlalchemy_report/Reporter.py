@@ -38,7 +38,7 @@ def generateFromSql(session, title, sqltext, footerCols, direction="ltr", font="
 
          if(sumCols != None) :
             for d in data :
-               for attr, value in d.items() :
+               for attr, value in dict(d).items() :
                   if(attr in sumCols):
                      sumOfColumn[attr]=sumOfColumn[attr]+int(str(value).replace(",", ""))
          
@@ -52,7 +52,7 @@ def generateFromSql(session, title, sqltext, footerCols, direction="ltr", font="
                   totalColumnSet = True
          
         
-         template= "<html> <head> <meta charset=\"utf-8\"> <title> {{title}} </title> </head> <body > <center> <p dir=\"{{direction}}\" ><center><font  style=\"font-family:'{{font}}';font-weight: bold;\"  > {{title}} </font></center></p> <table dir=\"{{direction}}\"  border=\"1\" class=\"table table-striped\" style=\"width:93%;font-family:'{{font}}'\"> <thead> <tr style='background-color:{{headerRowColor}}'>{% if(rowIndex==True)  %} <td align=\"center\"> </td> {% endif %} {% for c in columns %} <th>{{ c }}</th> {% endfor %} </tr> </thead> <tbody> {% for d in data %} <tr style='background-color:{% if(loop.index % 2 == 0 )  %} {{evenRowColor}} {% else %} {{oddRowColor}} {% endif %} '  > {% if(rowIndex==True)  %}  <td align=\"center\">{{ loop.index }}</td> {% endif %}  {% for attr, value in d.items() %} <td align=\"center\">{{ value }}</td> {% endfor %} </tr> {% endfor %} {% if(sumOfColumn != None )  %} <tr  style='background-color:#eee;font-weight: bold;'> <td></td> {% for a,v in sumOfColumn.items() %} <td align=\"center\">{{ v }}</td> {% endfor %} </tr> {% endif %}</tbody> </table> </center> </body> </html>"
+         template= "<html> <head> <meta charset=\"utf-8\"> <title> {{title}} </title> </head> <body > <center> <p dir=\"{{direction}}\" ><center><font  style=\"font-family:'{{font}}';font-weight: bold;\"  > {{title}} </font></center></p> <table dir=\"{{direction}}\"  border=\"1\" class=\"table table-striped\" style=\"width:93%;font-family:'{{font}}'\"> <thead> <tr style='background-color:{{headerRowColor}}'>{% if(rowIndex==True)  %} <td align=\"center\"> </td> {% endif %} {% for c in columns %} <th>{{ c }}</th> {% endfor %} </tr> </thead> <tbody> {% for d in data %} <tr style='background-color:{% if(loop.index % 2 == 0 )  %} {{evenRowColor}} {% else %} {{oddRowColor}} {% endif %} '  > {% if(rowIndex==True)  %}  <td align=\"center\">{{ loop.index }}</td> {% endif %}  {% for attr, value in dict(d).items() %} <td align=\"center\">{{ value }}</td> {% endfor %} </tr> {% endfor %} {% if(sumOfColumn != None )  %} <tr  style='background-color:#eee;font-weight: bold;'> <td></td> {% for a,v in sumOfColumn.items() %} <td align=\"center\">{{ v }}</td> {% endfor %} </tr> {% endif %}</tbody> </table> </center> </body> </html>"
 
          return render_template_string(template,title=title,data=data,columns=columns,sumOfColumn=sumOfColumn,direction=direction,font=font,totalText=totalText, rowIndex = rowIndex, headerRowColor =headerRowColor ,evenRowColor = evenRowColor, oddRowColor= oddRowColor )
    except BaseException as e :
