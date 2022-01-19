@@ -1,14 +1,5 @@
-from flask import render_template,request,jsonify, session
-from flask_login import login_required,current_user, login_user,logout_user
-from flask import render_template_string , redirect, url_for
-from flask import Blueprint  , flash 
-from flask_wtf import FlaskForm 
-import jdatetime, datetime
-from markupsafe import escape
-import jsons
-from app import authorize
-from sqlalchemy import or_, and_, text
-
+from flask import render_template_string 
+from sqlalchemy import  text
 
 
 def generateFromSql(session, title, sqltext, footerCols, direction="ltr", font="Tahoma", totalText = "Total", rowIndex = False, headerRowColor ='#eeeeee' ,evenRowColor = '#ffffff', oddRowColor="#ffffff") :
@@ -52,7 +43,7 @@ def generateFromSql(session, title, sqltext, footerCols, direction="ltr", font="
                   totalColumnSet = True
          
         
-         template= "<html> <head> <meta charset=\"utf-8\"> <title> {{title}} </title> </head> <body > <center> <p dir=\"{{direction}}\" ><center><font  style=\"font-family:'{{font}}';font-weight: bold;\"  > {{title}} </font></center></p> <table dir=\"{{direction}}\"  border=\"1\" class=\"table table-striped\" style=\"width:93%;font-family:'{{font}}'\"> <thead> <tr style='background-color:{{headerRowColor}}'>{% if(rowIndex==True)  %} <td align=\"center\"> </td> {% endif %} {% for c in columns %} <th>{{ c }}</th> {% endfor %} </tr> </thead> <tbody> {% for d in data %} <tr style='background-color:{% if(loop.index % 2 == 0 )  %} {{evenRowColor}} {% else %} {{oddRowColor}} {% endif %} '  > {% if(rowIndex==True)  %}  <td align=\"center\">{{ loop.index }}</td> {% endif %}  {% for attr, value in dict(d).items() %} <td align=\"center\">{{ value }}</td> {% endfor %} </tr> {% endfor %} {% if(sumOfColumn != None )  %} <tr  style='background-color:#eee;font-weight: bold;'> <td></td> {% for a,v in sumOfColumn.items() %} <td align=\"center\">{{ v }}</td> {% endfor %} </tr> {% endif %}</tbody> </table> </center> </body> </html>"
+         template= "<table dir=\"{{direction}}\"  border=\"1\" class=\"table table-striped\" style=\"width:93%;font-family:'{{font}}'\"> <thead> <tr> <th colspan='{{(columns|length)+1}}' style=\"font-family:'{{font}}';font-weight: bold;\"  > {{title}} </th> </tr> <tr style='background-color:{{headerRowColor}}'>{% if(rowIndex==True)  %} <td align=\"center\"> </td> {% endif %} {% for c in columns %} <th>{{ c }}</th> {% endfor %} </tr> </thead> <tbody> {% for d in data %} <tr style='background-color:{% if(loop.index % 2 == 0 )  %} {{evenRowColor}} {% else %} {{oddRowColor}} {% endif %} '  > {% if(rowIndex==True)  %}  <td align=\"center\">{{ loop.index }}</td> {% endif %}  {% for attr, value in dict(d).items() %} <td align=\"center\">{{ value }}</td> {% endfor %} </tr> {% endfor %} {% if(sumOfColumn != None )  %} <tr  style='background-color:#eee;font-weight: bold;'> <td></td> {% for a,v in sumOfColumn.items() %} <td align=\"center\">{{ v }}</td> {% endfor %} </tr> {% endif %}</tbody> </table>"
 
          return render_template_string(template,title=title,data=data,columns=columns,sumOfColumn=sumOfColumn,direction=direction,font=font,totalText=totalText, rowIndex = rowIndex, headerRowColor =headerRowColor ,evenRowColor = evenRowColor, oddRowColor= oddRowColor )
    except BaseException as e :
