@@ -18,9 +18,8 @@ The package contains one function named "generateFromSql" with 11 arguments :
 
 
 
-
 ## Installation
-To install flask_sqlalchemy using pip type:
+To install flask_sqlalchemy using pip :
 
 ```shell
 pip install flask-sqlalchemy-report
