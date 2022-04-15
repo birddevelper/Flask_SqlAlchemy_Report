@@ -1,6 +1,6 @@
 [![Downloads](https://static.pepy.tech/personalized-badge/flask-sqlalchemy-report?period=total&units=international_system&left_color=black&right_color=green&left_text=Downloads)](https://pepy.tech/project/flask-sqlalchemy-report)
 
-### This is an easy to use tool for generating html table from sql query.
+### Flask_SqlAlchemy_Report is an easy to use tool for generating html table from sql query.
 
 The package contains single function named "generateFromSql" which accepts 11 arguments :
 
