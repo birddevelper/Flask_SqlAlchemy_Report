@@ -8,7 +8,7 @@ with open('HISTORY.md') as history_file:
 
 setup_args = dict(
     name='flask_sqlalchemy_report',
-    version='0.1.7',
+    version='0.1.8',
     description='A useful simple to use tool to turn your sql query into a beautiful report html table',
     long_description_content_type="text/markdown",
     long_description=README + '\n\n' + HISTORY,
