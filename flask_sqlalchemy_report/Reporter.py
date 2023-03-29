@@ -31,13 +31,13 @@ def generateFromSql(session, title, sqltext, footerCols, direction="ltr", font="
             for d in data :
                for attr, value in dict(d).items() :
                   if(attr in sumCols):
-                     sumOfColumn[attr]=sumOfColumn[attr]+int(str(value).replace(",", ""))
+                     sumOfColumn[attr]=sumOfColumn[attr]+float(str(value).replace(",", ""))
          
          totalColumnSet = False
          if(sumCols != None) :
             for col, val in sumOfColumn.items() :
                if(val!="-") :
-                  sumOfColumn[col] = format(int(str(val)),",")
+                  sumOfColumn[col] = format(float(str(val)),",")
                elif (totalColumnSet == False) :
                   sumOfColumn[col] = totalText
                   totalColumnSet = True
