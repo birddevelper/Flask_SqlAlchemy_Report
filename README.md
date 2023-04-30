@@ -49,4 +49,4 @@ def listOfPersons():
  ```
 
 ## See More 
-[Read More ](https://m-shaeri.ir/blog/generate-html-table-from-sql-query-in-flask/)
+[Read more about flask_sqlalchemy_report here](https://mshaeri.com/blog/generate-html-table-from-sql-query-in-flask/)
