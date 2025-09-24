@@ -5,13 +5,13 @@ with open('README.md') as readme_file:
 
 setup_args = dict(
     name='flask_sqlalchemy_report',
-    version='0.2.3',
+    version='0.2.4',
     description='A useful simple to use tool to turn your sql query into a beautiful report html table',
     long_description_content_type="text/markdown",
     long_description=README ,
     license='GNU',
     packages=find_packages(),
-    author='M.Shaeri',
+    author='R.E',
     
     keywords=['Flask', 'sqlAlchemy', 'Report', 'HTML', 'Table', 'SQL'],
     url='https://github.com/birddevelper/Flask_SqlAlchemy_Report',
